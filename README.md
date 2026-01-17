@@ -26,7 +26,7 @@ This application allows you to:
 
 ---
 
-## Installation
+## Setup
 
 1. Clone the repository:
 
@@ -45,7 +45,6 @@ headers.append('apikey', 'YOUR_API_KEY_HERE');
 ---
 
 ## Usage
-
 
 Run the CLI with the following commands:
 
