@@ -4,7 +4,7 @@
 export const getCurrencyConversionData = async () => {
   try {
     const headers = new Headers();
-    headers.append('apikey', '*********************************'); // Insert your real API key here
+    headers.append('apikey', 'YOUR_API_KEY_HERE');
 
     const options = {
       method: 'GET',
