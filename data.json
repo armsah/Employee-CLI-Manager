@@ -1,0 +1,123 @@
+[
+  {
+    "id": 0,
+    "email": "charlie_jenner@mircosoft.com",
+    "firstName": "Charlie",
+    "lastName": "Jenner",
+    "salaryUSD": 397654,
+    "localCurrency": "USD",
+    "dateBirth": "1989-05-10",
+    "startDate": "2010-01-25",
+    "isActive": false
+  },
+  {
+    "id": 1,
+    "email": "katie_willis@svb.com",
+    "firstName": "Katie",
+    "lastName": "Willis",
+    "salaryUSD": 701197,
+    "localCurrency": "SAR",
+    "dateBirth": "1999-10-25",
+    "startDate": "2018-06-23",
+    "isActive": true
+  },
+  {
+    "id": 2,
+    "email": "john_starmer@amazon.com",
+    "firstName": "John",
+    "lastName": "Starmen",
+    "salaryUSD": 439090,
+    "localCurrency": "EUR",
+    "dateBirth": "1989-02-11",
+    "startDate": "2015-09-01",
+    "isActive": false
+  },
+  {
+    "id": 3,
+    "email": "matthew_miller@tesla.com",
+    "firstName": "Matthew",
+    "lastName": "Miller",
+    "salaryUSD": 85075,
+    "localCurrency": "BRL",
+    "dateBirth": "1992-07-31",
+    "startDate": "2020-01-15",
+    "isActive": true
+  },
+  {
+    "id": 4,
+    "email": "patricia_rodriguez@globomantics.com",
+    "firstName": "Patricia",
+    "lastName": "Rodriguez",
+    "salaryUSD": 205488,
+    "localCurrency": "AUD",
+    "dateBirth": "1991-06-05",
+    "startDate": "2011-09-07",
+    "isActive": true
+  },
+  {
+    "id": 5,
+    "email": "christopher_williams@amazon.com",
+    "firstName": "Christopher",
+    "lastName": "Williams",
+    "salaryUSD": 150010,
+    "localCurrency": "USD",
+    "dateBirth": "1989-05-10",
+    "startDate": "2003-01-15",
+    "isActive": true
+  },
+  {
+    "id": 6,
+    "email": "jessica_brown@tesla.com",
+    "firstName": "Jessica",
+    "lastName": "Brown",
+    "salaryUSD": 320113,
+    "localCurrency": "EUR",
+    "dateBirth": "1990-09-15",
+    "startDate": "2021-10-20",
+    "isActive": true
+  },
+  {
+    "id": 7,
+    "email": "elizabeth_davis@walmart.com",
+    "firstName": "Elizabeth",
+    "lastName": "Davis",
+    "salaryUSD": 220353,
+    "localCurrency": "USD",
+    "dateBirth": "1991-07-15",
+    "startDate": "2012-03-13",
+    "isActive": false
+  },
+  {
+    "id": 8,
+    "email": "ashley_jones@microsoft.com",
+    "firstName": "Ashley",
+    "lastName": "Jones",
+    "salaryUSD": 110550,
+    "localCurrency": "INR",
+    "dateBirth": "1990-10-18",
+    "startDate": "2015-10-11",
+    "isActive": false
+  },
+  {
+    "id": 9,
+    "email": "daniel_wilson@apple.com",
+    "firstName": "Daniel",
+    "lastName": "Wilson",
+    "salaryUSD": 185211,
+    "localCurrency": "CAD",
+    "dateBirth": "1988-05-20",
+    "startDate": "2011-06-11",
+    "isActive": true
+  },
+  {
+    "id": 10,
+    "email": "Linda_Garcia@amazon.com",
+    "firstName": "Linda",
+    "lastName": "Garcia",
+    "salaryUSD": 279070,
+    "localCurrency": "GBP",
+    "dateBirth": "1995-07-07",
+    "startDate": "2019-02-20",
+    "isActive": false
+  } 
+]
