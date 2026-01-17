@@ -43,7 +43,9 @@ Add your currency API key in currency.js:
 
 headers.append('apikey', 'YOUR_API_KEY_HERE');
 
-Usage
+---
+
+## Usage
 
 Run the CLI with the following commands:
 
