@@ -22,9 +22,6 @@ Clone the repository:
 git clone https://github.com/armsah/employee-cli-manager.git
 cd employee-cli-manager
 
-Add your currency API key in currency.js:
-headers.append('apikey', 'YOUR_API_KEY_HERE');
-
 Run the API with following commands:
 ```bash
 >> node index.js list
