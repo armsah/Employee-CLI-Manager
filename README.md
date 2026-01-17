@@ -28,18 +28,17 @@ This application allows you to:
 
 ## Installation
 
-Clone the repository:
+1. Clone the repository:
 
-```bash
-git clone https://github.com/armsah/employee-cli-manager.git
-cd employee-cli-manager
+>> git clone https://github.com/armsah/employee-cli-manager.git
+>> cd employee-cli-manager
 
 Install dependencies:
 
-npm install
+>> npm install
 
 
-Add your currency API key in currency.js:
+2. Add your currency API key in currency.js:
 
 headers.append('apikey', 'YOUR_API_KEY_HERE');
 
@@ -47,17 +46,18 @@ headers.append('apikey', 'YOUR_API_KEY_HERE');
 
 ## Usage
 
+
 Run the CLI with the following commands:
 
-# List all employees
+1. List all employees
 node index.js list
 
-# Add a new employee
+2. Add a new employee
 node index.js add
 
-# Search for an employee by ID
+3. Search for an employee by ID
 node index.js search-by-id
 
-# Search for employees by name
+4. Search for employees by name
 node index.js search-by-name
 
