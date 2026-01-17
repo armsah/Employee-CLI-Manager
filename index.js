@@ -10,7 +10,7 @@ const prompt = createPrompt();
 
 const logEmployee = (employee) => {
   Object.entries(employee).forEach((entry) => {
-    if (entry[0] !== 'salaryUSD' || entry[0] !== 'localCurrency') {
+    if (entry[0] !== 'salaryUSD' && entry[0] !== 'localCurrency') {
       console.log(`${entry[0]}: ${entry[1]}`);
     }
   });
@@ -19,16 +19,15 @@ const logEmployee = (employee) => {
 };
 
 function getInput(promptText, validator, transformer) {
-  const value = prompt(promptText);
-  if (validator && !validator(value)) {
+  while (true) {
+    const value = prompt(promptText);
+    if (!validator || validator(value)) {
+      return transformer ? transformer(value) : value;
+    }
     console.error('--Invalid input');
-    return getInput(promptText, validator, transformer);
   }
-  if (transformer) {
-    return transformer(value);
-  }
-  return value;
 }
+
 
 const getNextEmployeeID = () => {
   if (employees.length === 0) {
@@ -42,7 +41,7 @@ const getNextEmployeeID = () => {
 
 const isCurrencyCodeValid = (code) => {
   const currencyCodes = Object.keys(currencyData.rates);
-  return (currencyCodes.indexOf(code) > -1);
+  return currencyCodes.includes(code.toUpperCase());
 };
 
 const isStringInputValid = (input) => (!!(input));
@@ -87,6 +86,7 @@ async function addEmployee() {
   employee.localCurrency = getInput('Local currency (3 letter code): ', isCurrencyCodeValid);
 
   await insertEmployee(employee);
+  employees.push(employee);
 }
 
 // Search for employees by id
@@ -125,7 +125,7 @@ function searchByName() {
 
 const main = async () => {
   // Get the command the user wants to exexcute
-  const command = process.argv[2].toLowerCase();
+  const command = (process.argv[2] || '').toLowerCase();
 
   switch (command) {
     case 'list':

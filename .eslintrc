@@ -1,9 +1,6 @@
 {
-  "extends": "airbnb",
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
   "rules": {
-    "no-console": "off",
-    "import/extensions": "off",
-    "no-param-reassign": "off",
-    "no-underscore-dangle": "off"
+    "no-console": "off"
   }
 }

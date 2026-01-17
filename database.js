@@ -1,23 +1,25 @@
 import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
 
+let _db;
+
+// Create the table if it doesn't exist
 const createTable = async (db) => {
   const query = `CREATE TABLE IF NOT EXISTS employees (
-    id data_type PRIMARY KEY,
-    email data_type TEXT NOT NULL,
-    firstName data_type TEXT NOT NULL,
-    lastName data_type TEXT NOT NULL,
+    id INTEGER PRIMARY KEY,
+    email TEXT NOT NULL,
+    firstName TEXT NOT NULL,
+    lastName TEXT NOT NULL,
     salaryUSD INTEGER,
     localCurrency TEXT NOT NULL,
     startDate TEXT NOT NULL,
     isActive INTEGER
   )`;
-  return db.run(query);
+  await db.run(query);
 };
 
-let _db;
-
-const getConnection = async () => {
+// Get a single database connection (singleton)
+export const getConnection = async () => {
   if (!_db) {
     _db = await open({ filename: 'data.sqlite3', driver: sqlite3.Database });
     await createTable(_db);
@@ -25,25 +27,36 @@ const getConnection = async () => {
   return _db;
 };
 
-const closeConnection = async () => {
+// Close connection on process exit
+export const closeConnection = async () => {
   if (_db) {
     await _db.close();
     _db = undefined;
   }
 };
 
+process.on('exit', async () => {
+  if (_db) await closeConnection();
+});
+
+// Fetch all employees from the DB
 export const getAllEmployees = async () => {
   const db = await getConnection();
   const rows = await db.all('SELECT * FROM employees');
-  const employees = rows.map((r) => {
-    r.isActive = Boolean(r.isActive);
-    return r;
-  });
-  await closeConnection();
+
+  // Convert DB rows to proper objects
+  const employees = rows.map((r) => ({
+    ...r,
+    isActive: Boolean(r.isActive),
+    startDate: new Date(r.startDate),
+  }));
+
   return employees;
 };
 
+// Insert a new employee
 export const insertEmployee = async (employee) => {
+  const db = await getConnection();
   const insertQuery = `INSERT INTO employees (
     id,
     email,
@@ -53,20 +66,18 @@ export const insertEmployee = async (employee) => {
     localCurrency,
     startDate,
     isActive
-  ) VALUES (
-    ?,?,?,?,?,?,?,?
-  )`;
+  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+
   const values = [
     employee.id,
     employee.email,
     employee.firstName,
     employee.lastName,
     employee.salaryUSD,
-    employee.localCurrency,
-    String(employee.startDate),
+    employee.localCurrency.toUpperCase(),
+    employee.startDate.toISOString(),
     Number(employee.isActive),
   ];
-  const db = await getConnection();
+
   await db.run(insertQuery, values);
-  await closeConnection();
 };
