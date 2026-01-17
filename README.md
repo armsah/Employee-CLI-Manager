@@ -31,6 +31,7 @@ This application allows you to:
 1. Clone the repository:
 
 >> git clone https://github.com/armsah/employee-cli-manager.git
+
 >> cd employee-cli-manager
 
 Install dependencies:
